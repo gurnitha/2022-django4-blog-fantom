@@ -8,7 +8,7 @@ from .views import *
 
 app_name = 'blog'
 urlpatterns = [
-    path('', HomeView, name='homepage'),
+    path('', HomeView.as_view(), name='homepage'),
     path('posts/', PostListView, name='post_list'),
     path('post/1', PostDetailView, name='post_detail'),
     path('categories/', PostsByCategoryView, name='posts_by_category'),

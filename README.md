@@ -43,10 +43,8 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         modified:   README.md
 
 
-
 ### 2. DJANGO MODELS
 --------------------
-
 
 #### 2.1 Created models: Category, Tag, Post and Profile and added some post_slider items
 
@@ -68,3 +66,19 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         new file:   media/uploads/posts/2022/01/28/post-s-4.jpg
 
         NOTE: :)
+
+
+### 3. FULLY DYNAMIC HOME PAGE
+------------------------------
+
+#### 3.1 Loading and fetching post_sliders from db
+
+        modified:   README.md
+        modified:   apps/blog/templates/blog/inc/slider.html
+        modified:   apps/blog/urls.py
+        modified:   apps/blog/views.py
+
+
+        NOTE: :)
+
+        Pay attention to fetch items which have ManyToMany relationship.

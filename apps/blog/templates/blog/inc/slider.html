@@ -2,81 +2,47 @@
 
     <section class="post_slider_area">
         <div class="post_slider_inner owl-carousel">
+
+            {% for slider in posts_slider %}
             <div class="item">
                 <div class="post_s_item">
                     <div class="post_img">
-                        <img src="{% static 'img/post-slider/post-s-1.jpg' %}" alt="">
+                        <img 
+                            src="{{ slider.post_thumbnail.url }}" 
+                            alt="{{ slider.post_title }}" 
+                            width="480" 
+                            height="600">
                     </div>
                     <div class="post_text">
-                        <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a>
-                        <a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                        <a href="single-blog.html">
-                            <h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4>
+                        <!--  
+                            Note: 
+                            1. Tag and Post have ManyToMany relationship
+                            2. The way to get tag_name is as seen bellow.
+                        -->
+                        <a class="cat" href="{% url 'blog:posts_by_tag' %}">
+                            {% for tag in slider.post_tag.all %}
+                                {{ tag.tag_name }}
+                            {% endfor %}
                         </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        
+                        <a class="cat" href="{% url 'blog:posts_by_category' %}">
+                            {{ slider.post_category.cat_name }}</a>
+                        <a href="single-blog.html">
+                            <h4>{{ slider.post_title|title }}</h4>
+                        </a>
+                        <p>{{ slider.post_content|slice:"150"}}</p>
                         <div class="date">
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                            <a href="">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                {{ slider.post_publish }}</a>
+                            <a href="">
+                                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                                {{ slider.post_view }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <div class="post_s_item">
-                    <div class="post_img">
-                        <img src="{% static 'img/post-slider/post-s-2.jpg' %}" alt="">
-                    </div>
-                    <div class="post_text">
-                        <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a>
-                        <a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                        <a href="single-blog.html">
-                            <h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                        <div class="date">
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="post_s_item">
-                    <div class="post_img">
-                        <img src="{% static 'img/post-slider/post-s-3.jpg' %}" alt="">
-                    </div>
-                    <div class="post_text">
-                        <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a>
-                        <a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                        <a href="single-blog.html">
-                            <h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                        <div class="date">
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="post_s_item">
-                    <div class="post_img">
-                        <img src="{% static 'img/post-slider/post-s-4.jpg' %}" alt="">
-                    </div>
-                    <div class="post_text">
-                        <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a>
-                        <a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                        <a href="single-blog.html">
-                            <h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4>
-                        </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                        <div class="date">
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                            <a href="{% url 'blog:posts_by_tag' %}"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+
         </div>
     </section>
