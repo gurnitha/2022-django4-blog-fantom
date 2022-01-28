@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+
+{% block content %}
+
+        <!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+                <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+                <div class="container">
+                    <div class="banner_content text-center">
+                        <h2>Login</h2>
+                        <div class="page_link">
+                            <a href="{% url 'blog:homepage' %}">Home</a>
+                            <a href="{% url 'users:user_login' %}">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+        <!--================Blog Area =================-->
+        <section class="blog_area p_120">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Login form -->
+                    <div class="col-lg-8">
+                        <h2 style="text-align:center;color:#FF2F92;">Login</h2>
+                        <div class="blog_left_sidebar">
+                            <form method="post">
+
+                                {% csrf_token %}
+                                <div id="errors">
+                                    <div class="inner">
+                                        <p style="color:red">Please correct the errors below</p>
+                                        <ul>
+                                            ....
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="mt-10">
+                                        <input type="text" name="username" placeholder="User Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'User Name'" required="" class="single-input">
+                                    </div>
+                                <div class="mt-10">
+                                        <input type="text" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required="" class="single-input">
+                                    </div>
+                                <div class="mt-10">
+                                        <input type="password" name="password1" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required="" class="single-input">
+                                    </div>
+                                <div class="mt-10">
+                                        <input type="password" name="password2" placeholder="Again Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Again Password'" required="" class="single-input">
+                                    </div>
+                                <input type="submit" class="genric-btn success circle" style="float:right;margin-top:30px" value="Register">
+                            </form>
+
+                        </div>
+                    </div>
+                    
+                    <!-- Content Aside -->
+                    <div class="col-lg-4">
+                        <div class="blog_right_sidebar">
+
+                            <!-- Search -->
+                            {% include 'blog/shared/aside_search.html' %}
+
+                            <!-- The Bloger -->
+                            {% include 'blog/shared/aside_blogger.html' %}
+
+                            <!-- Popular Posts -->
+                            {% include 'blog/shared/aside_popular_posts.html' %}
+
+                            <!-- Banner -->
+                            {% include 'blog/shared/aside_banner.html' %}
+
+                            <!-- Category -->
+                            {% include 'blog/shared/aside_category.html' %}
+
+                            <!-- Tags -->
+                            {% include 'blog/shared/aside_tags.html'%}
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--================Blog Area =================-->
+
+       {% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+
+    <!--================Post Slider Area =================-->
+    {% include 'blog/inc/slider.html' %}
+    <!--================End Post Slider Area =============-->
+
+    <!--================Blog Area ========================-->
+    <section class="blog_area p_120">
+        <div class="container">
+            <div class="row">
+
+                <!-- Content Main -->
+                {% include 'blog/inc/content_main.html' %}
+
+                <!-- Content Aside -->
+                <div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+
+                        <!-- Search -->
+                        {% include 'blog/shared/aside_search.html' %}
+
+                        <!-- The Bloger -->
+                        {% include 'blog/shared/aside_blogger.html' %}
+
+                        <!-- Popular Posts -->
+                        {% include 'blog/shared/aside_popular_posts.html' %}
+
+                        <!-- Banner -->
+                        {% include 'blog/shared/aside_banner.html' %}
+
+                        <!-- Category -->
+                        {% include 'blog/shared/aside_category.html' %}
+
+                        <!-- Tags -->
+                        {% include 'blog/shared/aside_tags.html'%}
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--================Blog Area ========================-->
+
+{% endblock content %}

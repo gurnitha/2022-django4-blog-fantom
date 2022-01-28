@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    {% include 'shared/head.html' %}
+    <title>Fantom Blog - {% block title %}{{block.super}}{% endblock title %}</title>
+</head>
+<body>
+    <!--================Header Menu Area =================-->
+    {% include 'shared/header.html' %}
+    <!--================Header Menu Area =================-->
+    
+    {% block content %}
+    {% endblock content %}
+    
+    <!--================ Footer Area  ====================-->   
+    {% include 'shared/footer.html' %}
+    <!--================ Footer Area  ====================-->
+    
+    <!--================ Scripts Area  ===================-->   
+    {% include 'shared/scripts.html' %}
+    <!--================ Scripts Area  ===================-->
+
+</body>
+</html>
