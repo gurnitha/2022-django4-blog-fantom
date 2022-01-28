@@ -6,7 +6,7 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
 
 
 ### 1. SETTING UP A FULLY STATIC FONTOM BLOG
-
+--------------------------------------------
 
 #### 1.1 Created django project, apps, pages and added static, media files and themes
 
@@ -41,3 +41,30 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
             └───shared
 
         modified:   README.md
+
+
+
+### 2. DJANGO MODELS
+--------------------
+
+
+#### 2.1 Created models: Category, Tag, Post and Profile and added some post_slider items
+
+        modified:   README.md
+        modified:   apps/blog/admin.py
+        new file:   apps/blog/migrations/0001_initial.py
+        new file:   apps/blog/migrations/0002_initial.py
+        modified:   apps/blog/models.py
+        modified:   apps/users/admin.py
+        new file:   apps/users/migrations/0001_initial.py
+        modified:   apps/users/models.py
+        new file:   media/profiles/ing-sm.jpg
+        new file:   media/profiles/user-img.jpg
+        new file:   media/uploads/posts/2022/01/28/post-cat-1.jpg
+        new file:   media/uploads/posts/2022/01/28/post-cat-2.jpg
+        new file:   media/uploads/posts/2022/01/28/post-s-1.jpg
+        new file:   media/uploads/posts/2022/01/28/post-s-2.jpg
+        new file:   media/uploads/posts/2022/01/28/post-s-3.jpg
+        new file:   media/uploads/posts/2022/01/28/post-s-4.jpg
+
+        NOTE: :)
