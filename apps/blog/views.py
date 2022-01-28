@@ -19,14 +19,16 @@ class HomeView(ListView):
 
     # Get all posts with status published
     def get_queryset(self):
-        return self.post_model.objects.filter(post_status='published')
+        return self.post_model.objects.filter(post_status='published', post_slider=True)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
+        context['posts'] = Post.objects.filter(post_status='published', post_slider=False, post_type='featured').order_by('-id')
+        context['posts_small'] = Post.objects.filter(post_status='published', post_type='small', post_slider=False).order_by('-id')[0:2]
         context['title'] = 'Home'
         return context
-
+        
 
 def PostListView(request):
     return render(request, 'blog/post_list.html')

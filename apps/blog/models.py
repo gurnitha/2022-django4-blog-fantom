@@ -57,6 +57,8 @@ class Post(models.Model):
 	POST_TYPE_CHOICES = (
 		('unfeatured', 'Unfeatured'),
 		('featured', 'Featured'),
+		('large', 'large'),
+		('small', 'small'),
 	)
 
 	post_title 		= models.CharField(max_length=150)

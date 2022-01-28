@@ -1,125 +1,97 @@
 {% load static %}
 
+
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
+
+                        {% for post in posts|slice:"0:2" %}
                         <article class="blog_style1">
                             <div class="blog_img">
-                                <img class="img-fluid" src="{% static 'img/home-blog/blog-1.jpg' %}" alt="">
+                                <img class="img-fluid" src="{{ post.post_thumbnail.url }}" alt="">
                             </div>
                             <div class="blog_text">
                                 <div class="blog_text_inner">
-                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                    <a href="{% url 'blog:post_detail'}">
-                                        <h4>Nest Protect: 2nd Gen Smoke CO Alarm</h4>
+                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">
+                                        {% for tag in post.post_tag.all %}
+                                            {{ tag.tag_name }}
+                                        {% endfor %}
                                     </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                    <a class="cat" href="{% url 'blog:posts_by_category' %}">
+                                        {{ post.post_category.cat_name }}</a>
+                                    <a href="{% url 'blog:post_detail'}">
+                                        <h4>{{ post.post_title|title }}</h4>
+                                    </a>
+                                    <p>{{ post.post_content|slice:"200"}}</p>
                                     <div class="date">
-                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{ post.post_publish }}</a>
+                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{ post.post_view }}</a>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        <article class="blog_style1">
-                            <div class="blog_img">
-                                <img class="img-fluid" src="{% static 'img/home-blog/blog-2.jpg' %}" alt="">
-                            </div>
-                            <div class="blog_text">
-                                <div class="blog_text_inner">
-                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                    <a href="{% url 'blog:post_detail'}">
-                                        <h4>Nest Protect: 2nd Gen Smoke CO Alarm</h4>
-                                    </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                                    <div class="date">
-                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        {% endfor %}
+
                         <div class="row">
+                            {% for small in posts_small %}
                             <div class="col-md-6">
                                 <article class="blog_style1 small">
                                     <div class="blog_img">
-                                        <img class="img-fluid" src="{% static 'img/home-blog/blog-small-1.jpg' %}" alt="">
+                                        <img class="img-fluid" src="{{ small.post_thumbnail.url }}" alt="">
                                     </div>
                                     <div class="blog_text">
                                         <div class="blog_text_inner">
-                                            <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                            <a href="{% url 'blog:post_detail'}">
-                                                <h4>2nd Gen Smoke Co Bomb Alarm integration</h4>
+                                            <a class="cat" href="{% url 'blog:posts_by_tag' %}">
+                                                {% for tag in small.post_tag.all %}
+                                                    {{ tag.tag_name }}
+                                                {% endfor %}
                                             </a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                                            <a class="cat" href="{% url 'blog:posts_by_category' %}">
+                                                {{ small.post_category.cat_name }}
+                                            </a>
+                                            <a href="{% url 'blog:post_detail'}">
+                                                <h4>{{ small.post_title|title }}</h4>
+                                            </a>
+                                            <p>{{ small.post_content|slice:"100"}}</p>
                                             <div class="date">
-                                                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                                                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{ small.post_publish }}</a>
+                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{ small.post_view }}</a>
                                             </div>
                                         </div>
                                     </div>
                                 </article>
                             </div>
-                            <div class="col-md-6">
-                                <article class="blog_style1 small">
-                                    <div class="blog_img">
-                                        <img class="img-fluid" src="{% static 'img/home-blog/blog-small-2.jpg' %}" alt="">
-                                    </div>
-                                    <div class="blog_text">
-                                        <div class="blog_text_inner">
-                                            <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                            <a href="{% url 'blog:post_detail'}">
-                                                <h4>2nd Gen Smoke Co Bomb Alarm integration</h4>
-                                            </a>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                            <div class="date">
-                                                <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                                <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
+                            {% endfor %}
                         </div>
+
+                        {% for post in posts|slice:"2:4" %}
                         <article class="blog_style1">
                             <div class="blog_img">
-                                <img class="img-fluid" src="{% static 'img/home-blog/blog-3.jpg' %}" alt="">
+                                <img class="img-fluid" src="{{ post.post_thumbnail.url }}" alt="">
                             </div>
                             <div class="blog_text">
                                 <div class="blog_text_inner">
-                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                    <a href="{% url 'blog:post_detail'}">
-                                        <h4>Nest Protect: 2nd Gen Smoke CO Alarm</h4>
+                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">
+                                        {% for tag in post.post_tag.all %}
+                                            {{ tag.tag_name }}
+                                        {% endfor %}
                                     </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                    <a class="cat" href="{% url 'blog:posts_by_category' %}">
+                                        {{ post.post_category.cat_name }}</a>
+                                    <a href="{% url 'blog:post_detail'}">
+                                        <h4>{{ post.post_title|title }}</h4>
+                                    </a>
+                                    <p>{{ post.post_content|slice:"200"}}</p>
                                     <div class="date">
-                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{ post.post_publish }}</a>
+                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{ post.post_view }}</a>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        <article class="blog_style1">
-                            <div class="blog_img">
-                                <img class="img-fluid" src="{% static 'img/home-blog/blog-4.jpg' %}" alt="">
-                            </div>
-                            <div class="blog_text">
-                                <div class="blog_text_inner">
-                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">Gadgets</a><a class="cat" href="{% url 'blog:posts_by_category' %}">Category</a>
-                                    <a href="{% url 'blog:post_detail'}">
-                                        <h4>Nest Protect: 2nd Gen Smoke CO Alarm</h4>
-                                    </a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                                    <div class="date">
-                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        {% endfor %}
 
                         <!-- Pagination -->
                         {% include 'blog/shared/pagination.html' %}
 
                     </div>
                 </div>
-

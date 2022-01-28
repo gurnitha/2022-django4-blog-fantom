@@ -82,3 +82,23 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         NOTE: :)
 
         Pay attention to fetch items which have ManyToMany relationship.
+
+
+#### 3.2 Loading and fetching featured and small posts fro db to homepage
+
+        modified:   README.md
+        new file:   apps/blog/migrations/0003_alter_post_post_slug_alter_post_post_type.py
+        new file:   apps/blog/migrations/0004_alter_post_post_type.py
+        modified:   apps/blog/models.py
+        modified:   apps/blog/templates/blog/inc/content_main.html
+        modified:   apps/blog/views.py
+        new file:   media/uploads/posts/2022/01/28/blog-1.jpg
+        ...
+        new file:   media/uploads/posts/2022/01/28/blog-small-3.jpg
+
+
+        NOTE: 
+
+        1. Modified Post model: adding post_type 'small'
+
+        :)
