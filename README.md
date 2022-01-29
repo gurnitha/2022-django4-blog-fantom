@@ -188,3 +188,23 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         modified:   apps/blog/views.py
 
         NOTE: :)
+
+
+#### 3.8 Using class HomeView(View) - to load and fetch sliders, featured and small posts
+
+        modified:   README.md
+        modified:   apps/blog/templates/blog/inc/content_main.html
+        modified:   apps/blog/templates/blog/shared/pagination.html
+        modified:   apps/blog/views.py
+
+        NOTE:
+
+        I changed:
+
+        FROM : class HomeView(ListView)
+        TO   : class HomeView(View)
+
+        The homepage used to have pagination,
+        but now I decided not to have it.
+
+        :)
