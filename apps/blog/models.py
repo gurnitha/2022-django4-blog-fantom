@@ -86,10 +86,12 @@ class Post(models.Model):
 	post_type 		= models.CharField(max_length=10, choices=POST_TYPE_CHOICES, default='unfeatured')
 	post_view   	= models.IntegerField(default=0, verbose_name='Times of viewed')
 
-	
 	class Meta:
 		ordering = ('-post_publish',)
 		verbose_name_plural = "Posts"
 
 	def __str__(self):
 		return self.post_title  
+
+	# def get_post_list_absolute_url(self):
+	# 	return reverse('blog:post_list', kwargs={'slug':self.slug})

@@ -33,8 +33,15 @@ class HomeView(ListView):
         return context
 
 
-def PostListView(request):
-    return render(request, 'blog/post_list.html')
+class PostListView(ListView):
+
+    model = Post 
+    paginate_by = 4
+    context_object_name = 'post_list'
+    template_name = "blog/post_list.html"
+
+    def get_queryset(self):
+        return self.model.objects.filter(post_status='published').order_by('-id')
 
 
 def PostDetailView(request):

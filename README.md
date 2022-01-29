@@ -177,3 +177,14 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         modified:   apps/blog/templatetags/template_tags_blog.py
 
         NOTE: :)
+
+
+#### 3.7 ALL POSTS - Load and fetch all posts from db to post_list page
+
+        modified:   README.md
+        modified:   apps/blog/models.py
+        modified:   apps/blog/templates/blog/post_list.html
+        modified:   apps/blog/urls.py
+        modified:   apps/blog/views.py
+
+        NOTE: :)
