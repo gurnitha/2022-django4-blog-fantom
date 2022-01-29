@@ -4,7 +4,7 @@
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
 
-                        {% for post in posts|slice:"0:2" %}
+                        {% for post in posts %}
                         <article class="blog_style1">
                             <div class="blog_img">
                                 <img class="img-fluid" src="{{ post.post_thumbnail.url }}" alt="">
@@ -63,32 +63,6 @@
                             {% endfor %}
                         </div>
 
-                        {% for post in posts|slice:"2:4" %}
-                        <article class="blog_style1">
-                            <div class="blog_img">
-                                <img class="img-fluid" src="{{ post.post_thumbnail.url }}" alt="">
-                            </div>
-                            <div class="blog_text">
-                                <div class="blog_text_inner">
-                                    <a class="cat" href="{% url 'blog:posts_by_tag' %}">
-                                        {% for tag in post.post_tag.all %}
-                                            {{ tag.tag_name }}
-                                        {% endfor %}
-                                    </a>
-                                    <a class="cat" href="{% url 'blog:posts_by_category' %}">
-                                        {{ post.post_category.cat_name }}</a>
-                                    <a href="{% url 'blog:post_detail'}">
-                                        <h4>{{ post.post_title|title }}</h4>
-                                    </a>
-                                    <p>{{ post.post_content|slice:"200"}}</p>
-                                    <div class="date">
-                                        <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{ post.post_publish }}</a>
-                                        <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i>{{ post.post_view }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        {% endfor %}
 
                         <!-- Pagination -->
                         {% include 'blog/shared/pagination.html' %}

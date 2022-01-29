@@ -102,3 +102,19 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         1. Modified Post model: adding post_type 'small'
 
         :)
+
+
+#### 3.3 Pagination using GCBV
+
+        modified:   README.md
+        modified:   apps/blog/templates/blog/inc/content_main.html
+        modified:   apps/blog/templates/blog/shared/pagination.html
+        modified:   apps/blog/views.py
+
+
+        NOTE: 
+
+        1. Could not loop small post_type as extra query.
+        2. Only featured post_type could be loope as it should be
+
+        :) and :(

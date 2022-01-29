@@ -1,6 +1,7 @@
 # blog/views.py
 
 # Django modules
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views.generic.list import ListView
 
@@ -10,25 +11,27 @@ from apps.blog.models import Category, Tag, Post
 # Create your views here.
 
 
-# GCBV: HomeView
 class HomeView(ListView):
 
-    post_model = Post
-    context_object_name = 'posts_slider'
+    model = Post 
+    paginate_by = 2
+    context_object_name = 'posts'
     template_name = "blog/index.html"
 
-    # Get all posts with status published
+    # Get all posts with status pubish, which will be
+    # the FIRST objects to be considered by Django.
+    # If you need extra objects, do it in get_context_data
     def get_queryset(self):
-        return self.post_model.objects.filter(post_status='published', post_slider=True)
+        return self.model.objects.filter(post_status='published', post_type='featured')
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        # Call the base implementation first to get a context
-        context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(post_status='published', post_slider=False, post_type='featured').order_by('-id')
-        context['posts_small'] = Post.objects.filter(post_status='published', post_type='small', post_slider=False).order_by('-id')[0:2]
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        # context['now'] = timezone.now()
+        context['posts_slider'] = Post.objects.all().filter(post_slider=True)
+        context['posts_small'] = Post.objects.all().filter(post_status='published', post_type='small')[:2]
         context['title'] = 'Home'
         return context
-        
+
 
 def PostListView(request):
     return render(request, 'blog/post_list.html')
