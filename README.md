@@ -118,3 +118,25 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         2. Only featured post_type could be loope as it should be
 
         :) and :(
+
+
+#### 3.4 POPULAR POSTS - Load and fetch popular posts
+
+        STEPS:
+
+        1. Create templatetags folder   : apps/blog/templatetags
+        2. Create init file             : apps/blog/templatetags/__init__.py
+        3. Create templatetags file     : apps/blog/templatetags/template_tags_blog.py
+        4. In template_tags_blog.py     : Define show_popular_posts view method and its logic
+                                          to create objects of post_type='featured'
+        5. In templates/blog/index.html : Load {% load template_tags_blog %}  
+                                          and fetch the show_popular_posts view method
+        6. Test it out 
+
+        modified:   README.md
+        modified:   apps/blog/templates/blog/index.html
+        modified:   apps/blog/templates/blog/shared/aside_popular_posts.html
+        new file:   apps/blog/templatetags/__init__.py
+        new file:   apps/blog/templatetags/template_tags_blog.py
+
+        NOTE: :)

@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load template_tags_blog %}
 
 {% block title %} Home {% endblock title %}
 
@@ -28,8 +29,8 @@
                         {% include 'blog/shared/aside_blogger.html' %}
 
                         <!-- Popular Posts -->
-                        {% include 'blog/shared/aside_popular_posts.html' %}
-
+                        <!-- {% include 'blog/shared/aside_popular_posts.html' %} -->
+                        {% show_popular_posts %}
                         <!-- Banner -->
                         {% include 'blog/shared/aside_banner.html' %}
 
