@@ -4,7 +4,7 @@
 from django import template
 
 # Locals
-from apps.blog.models import Post 
+from apps.blog.models import Post, Category 
 
 # Template library
 register = template.Library()
@@ -18,3 +18,12 @@ def show_popular_posts(count=5):
 	# print(popular_posts) # It works
 	context = {'popular_posts':popular_posts}
 	return context
+
+
+@register.inclusion_tag('blog/shared/aside_category.html')
+def show_posts_by_category():
+	categories = Category.objects.all()
+	# print(categories) # It works
+	context = {'categories':categories}
+	return context
+

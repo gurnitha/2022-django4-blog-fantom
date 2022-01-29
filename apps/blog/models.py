@@ -27,6 +27,12 @@ class Category(models.Model):
     def get_category_absolute_url(self):
         return reverse('blog:posts_by_category', kwargs={'slug':self.slug})
 
+    # Counting how many posts in each category
+    # Todo so, use related_name='posts' in Post model
+    def post_count(self):
+    	return self.posts.all().count()
+
+
 
 # MODEL:TAG
 class Tag(models.Model):

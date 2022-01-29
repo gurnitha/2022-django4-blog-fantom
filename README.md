@@ -140,3 +140,25 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         new file:   apps/blog/templatetags/template_tags_blog.py
 
         NOTE: :)
+
+
+#### 3.5 POSTS BY CATEGORY - Showing categories and number of posts in each category
+
+        STEPS:
+
+        1. Follow steps in 3.4
+        2. In Category model, create post_count method by using 
+           the related_name='posts' in Post model
+           def post_count(self):
+               return self.posts.all().count()
+        3. Load templatetags 
+        4. Fetch the show_posts_by_category
+        5. Test it out
+
+        modified:   README.md
+        modified:   apps/blog/models.py
+        modified:   apps/blog/templates/blog/index.html
+        modified:   apps/blog/templates/blog/shared/aside_category.html
+        modified:   apps/blog/templatetags/template_tags_blog.py
+
+        NOTE: :)

@@ -3,48 +3,23 @@
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Post Catgories</h4>
                             <ul class="list cat-list">
+
+                                {% for category in categories %}
+                                {% if category %}
                                 <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Technology</p>
-                                        <p>37</p>
+                                    <a href="{% url 'blog:posts_by_category' %}" class="d-flex justify-content-between">
+                                        <p>{{ category.cat_name }}</p>
+                                        <p>{{ category.post_count }}</p>
                                     </a>
                                 </li>
+                                {% else %}
                                 <li>
                                     <a href="#" class="d-flex justify-content-between">
-                                        <p>Lifestyle</p>
-                                        <p>24</p>
+                                        <p style="color:#EE24B4;">No categories found.</p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Fashion</p>
-                                        <p>59</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Art</p>
-                                        <p>29</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Food</p>
-                                        <p>15</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Architecture</p>
-                                        <p>09</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Adventure</p>
-                                        <p>44</p>
-                                    </a>
-                                </li>
+                                {% endif %}
+                                {% endfor %}
                             </ul>
                             <div class="br"></div>
                         </aside>
