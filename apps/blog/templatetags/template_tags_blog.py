@@ -4,7 +4,7 @@
 from django import template
 
 # Locals
-from apps.blog.models import Post, Category 
+from apps.blog.models import Post, Category, Tag 
 
 # Template library
 register = template.Library()
@@ -25,5 +25,13 @@ def show_posts_by_category():
 	categories = Category.objects.all()
 	# print(categories) # It works
 	context = {'categories':categories}
+	return context
+
+
+@register.inclusion_tag('blog/shared/aside_tags.html')
+def show_tags():
+	tags = Tag.objects.all()
+	print(tags) # It works
+	context = {'tags':tags}
 	return context
 

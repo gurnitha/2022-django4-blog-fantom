@@ -50,6 +50,10 @@ class Tag(models.Model):
     def get_tag_absolute_url(self):
         return reverse('blog:posts_by_tag', kwargs={'slug': self.slug})
 
+    # Counting how many posts in each tag
+    # Todo so, use related_name='posts' in Post model
+    def post_count(self):
+    	return self.posts.all().count()
 
 
 # MODEL:Post

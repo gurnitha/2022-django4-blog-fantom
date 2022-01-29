@@ -162,3 +162,18 @@ Github repository: https://github.com/gurnitha/2022-django4-blog-fantom
         modified:   apps/blog/templatetags/template_tags_blog.py
 
         NOTE: :)
+
+
+#### 3.6 POSTS BY TAG - Showing tags and number of posts in each tag
+
+        STEPS:
+
+        1. Refer to poin 3.5
+
+        modified:   README.md
+        modified:   apps/blog/models.py
+        modified:   apps/blog/templates/blog/index.html
+        modified:   apps/blog/templates/blog/shared/aside_tags.html
+        modified:   apps/blog/templatetags/template_tags_blog.py
+
+        NOTE: :)
